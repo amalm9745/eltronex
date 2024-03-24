@@ -81,16 +81,38 @@ class ReviewModel(models.Model):
 
 class ShoppingOrderModel(models.Model):
     order_id=models.AutoField(primary_key=True)
-    product_id=models.ForeignKey(ProductModel,on_delete=models.CASCADE)
-    date=models.DateTimeField(auto_created=True)
+    ordered_date=models.DateTimeField(auto_created=True)
+    ordered = models.BooleanField(default=False)
     user_id=models.ForeignKey(UserModel,on_delete=models.CASCADE)
-    address_id=models.ForeignKey(UserAddressModel,on_delete=models.CASCADE)
+    # for storing address
+    name_in_address=models.CharField(max_length=50,null=True)
+    mobile=models.CharField(max_length=50,null=True)
+    address=models.CharField(max_length=100,null=True)
+    locality=models.CharField(max_length=50,null=True,blank=True)
+    pincode=models.CharField(max_length=50,null=True)
+    city=models.CharField(max_length=50,null=True)
+    state=models.CharField(max_length=50,null=True)
+    landmark=models.CharField(max_length=150,null=True,blank=True)
+    address_type=models.CharField(max_length=50,null=True)
+
+    being_delivered = models.BooleanField(default=False)
+    received = models.BooleanField(default=False)
+    refund_requested = models.BooleanField(default=False)
+    refund_granted = models.BooleanField(default=False)
 
     class Meta:
         db_table="user_orders"
 
     def __str__(self):
         return self.user_id.user_name
+    
+
+class orderItemModel(models.Model):
+    order_id=models.ForeignKey(ShoppingOrderModel,on_delete=models.CASCADE)
+    product=models.ForeignKey(ProductVariantModel,on_delete=models.CASCADE)
+    quantity=models.IntegerField()
+    class Meta:
+        db_table="products in order"
 
 # class PaymentModel(models.Model):
 #     payment_id=models.AutoField(primary_key=True)
