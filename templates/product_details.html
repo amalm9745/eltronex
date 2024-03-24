@@ -156,31 +156,36 @@
 
         <div class="container-fluid d-flex p-2">
           <i class="bi bi-geo-alt-fill"></i>
-          <div>Delivery at:Kochi, 621506.</div>
+          {% if address %}
+          <div>Delivery at:{{address.city}}, {{address.pincode}}.</div>
+          {% else %}
+          <div><a href="{% url 'login' %}">Login to add address</a></div>
+          {% endif %}
         </div>
 
       </div>
         <div class="col-3">
           <div class="show_features ms-4">
+            <div class="product-stock mb-1 mt-1" style="color:#fed700">In stock</div>
             <h3>₹{{product.selling_price}}</h3>
-            <p class="ms-1"><s>₹{{product.original_price}}</s></p>
-            {% for key,value in filter.items %}
+            <p class="ms-1 mb-3"><s>₹{{product.original_price}}</s></p>
+            <!-- {% for key,value in filter.items %}
             <div>{{key}}</div>
             <div class="ram_btns d-flex">
               {% for x in value %}
               <button type="button" class="btn btn-primary btn-sm me-1">{{x}}</button>
               {% endfor %}
             </div>
-            {% endfor %}
+            {% endfor %} -->
             
             {% if product_in_cart %}
             <a href="/cart" class="rounded-button ps-5">View Cart</a>
             {% else %}     
             <button  class="rounded-button" onclick=addToCart({{product.variant_id}})>Add to Cart</button>
             {% endif %}
-          
-            <button class="rounded-button">Buy Now</button>
-
+            <div>
+              <button class="rounded-button">Buy Now</button>
+            </div>
           </div>
         </div>
       </div>

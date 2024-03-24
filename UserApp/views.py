@@ -41,22 +41,26 @@ def logout(request):
 def product_detail_view(request, product_id,variant_id):
    
     # Retrieve the product details
+    if 'user' in request.session:
+        address=UserAddressModel.objects.filter(user_id=request.session['user']).first()
+    else:
+        address=None
     product = get_object_or_404(ProductModel, pk=product_id)
     if product.sub_category_id.category_id.category_name=="Mobiles":
-        ram=[]
-        rom=[]
-        color=[]
-        var= ProductVariantModel.objects.filter(product_id=product_id)
-        for x in var:
-            ram.append(x.ram)
-            rom.append(x.storage)
-            color.append(x.color)
+        # ram=[]
+        # rom=[]
+        # color=[]
+        # var= ProductVariantModel.objects.filter(product_id=product_id)
+        # for x in var:
+        #     ram.append(x.ram)
+        #     rom.append(x.storage)
+        #     color.append(x.color)
 
-        filter={
-            'Ram':ram,
-            'Storage':rom,
-            'Color':color
-        } 
+        # filter={
+        #     'Ram':ram,
+        #     'Storage':rom,
+        #     'Color':color
+        # } 
         variant=get_object_or_404(ProductVariantModel,pk=variant_id)
         highlight={
             'Ram':variant.ram,
@@ -83,8 +87,9 @@ def product_detail_view(request, product_id,variant_id):
         'product_img':product_img,
         'product_in_cart':product_in_cart,
         'highlight':highlight,
-        'filter':filter,
-        'product_in_wishlist':product_in_wishlist
+        # 'filter':filter,
+        'product_in_wishlist':product_in_wishlist,
+        'address':address,
 
     }
     return render(request, 'product_details.html', content)
