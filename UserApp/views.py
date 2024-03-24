@@ -314,22 +314,35 @@ def removeWishlistItem(request,variant_id):
     item.delete()
     return redirect('/wishlist')
 
-def checkout(request):
-    cart_items = CartModel.objects.filter(user_id=request.session['user'])
+def checkout(request,variant_id,quantity):
+
+    if variant_id=="cart":
+        cart_items = CartModel.objects.filter(user_id=request.session['user'])
+        products = []
+        total_cart_value = Decimal(0)
+        total_quantity=Decimal(0)
+        for item in cart_items:
+            product_image=ProductImgModel.objects.filter(variant_id=item.variant_id).first()
+            product_total_price = Decimal(item.variant_id.selling_price) * item.quantity
+            total_cart_value += product_total_price
+            total_quantity+=item.quantity
+            products.append({
+                    'product': item.variant_id,
+                    'product_image':product_image,
+                    'quantity':item.quantity
+                })
+    else:
+        item=ProductVariantModel.objects.get(variant_id=variant_id)
+        product_image=ProductImgModel.objects.filter(variant_id=item.variant_id).first()
+        total_cart_value = Decimal(item.selling_price)*quantity
+        total_quantity = quantity
+        products = [{
+        'product': item,
+        'product_image': product_image,
+        'quantity': quantity
+    }]
+
     address= UserAddressModel.objects.filter(user_id=request.session['user'])
     default_address=UserAddressModel.objects.filter(user_id=request.session['user']).first()
-    products = []
-    total_cart_value = Decimal(0)
-    total_quantity=Decimal(0)
-    for item in cart_items:
-       product_image=ProductImgModel.objects.filter(variant_id=item.variant_id).first()
-       product_total_price = Decimal(item.variant_id.selling_price) * item.quantity
-       total_cart_value += product_total_price
-       total_quantity+=item.quantity
-       products.append({
-            'product': item.variant_id,
-            'product_image':product_image,
-            'quantity':item.quantity
-        })
     return render(request,'checkout.html',{'products':products,'address':address,'default_address':default_address,
                                            'total_cart_value': total_cart_value,'total_quantity':total_quantity})

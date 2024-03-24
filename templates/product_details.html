@@ -179,13 +179,13 @@
             {% endfor %} -->
             
             {% if product_in_cart %}
-            <a href="/cart" class="rounded-button ps-5">View Cart</a>
+            <a href="/cart" class="rounded-button-a">View Cart</a>
             {% else %}     
             <button  class="rounded-button" onclick=addToCart({{product.variant_id}})>Add to Cart</button>
             {% endif %}
             <div class="buy-now-button-container">
               <input type="number" id="quantity" name="quantity" min="1" max="10" class="quantity-input" value="1">
-              <button class="buy-now-button" type="submit">Buy Now</button>
+              <button class="buy-now-button" type="submit" onclick=buyNow({{product.variant_id}})>Buy Now</button>
             </div>
           </div>
         </div>
@@ -285,13 +285,18 @@
   </div>
 </footer>
 <script>
-  {% comment %} function buyNow(product_id) {
-    window.location.href = '/ordersummary/' + {{product.book_id}};
-  } {% endcomment %}
+
   function addToCart(variant_id) {
     window.location.href = '/addtocart/' + {{ product.variant_id }} +'/'+"product_details";
   } 
+  function buyNow(variant_id) {
+    // Get the quantity input element
+    const quantityInput = document.getElementById('quantity');
 
+    // Get the selected quantity value
+    const selectedQuantity = quantityInput.value;
+    window.location.href = '/checkout/'+{{ product.variant_id }}+'/'+selectedQuantity+'/';
+}
 
 
   // Get the quantity input element

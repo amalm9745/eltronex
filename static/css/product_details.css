@@ -214,8 +214,21 @@ font-size: 16px;
 width:13rem;
 transition: background-color 0.3s ease;
 }
-
-.rounded-button:hover {
+.rounded-button-a{
+display: inline-block;
+margin-top:1rem;
+padding: 10px 20px 10px 70px;
+background-color: #007bff; /* Button background color */
+color: #fff; /* Button text color */
+text-decoration: none;
+border: none;
+border-radius: 20px; /* Adjust the value to control the roundness of the edges */
+cursor: pointer;
+font-size: 16px;
+width:13rem;
+transition: background-color 0.3s ease;
+}
+.rounded-button .rounded-button-a:hover {
 background-color: #0056b3; /* Button background color on hover */
 }
 .buy-now-button-container {
@@ -241,7 +254,9 @@ background-color: #0056b3; /* Button background color on hover */
   cursor: pointer; /* Show pointer cursor on hover */
   width:10rem;
 }
-
+.buy-now-button:hover {
+  background-color: #0056b3; /* Button background color on hover */
+  }
 
 
 
