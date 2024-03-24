@@ -25,8 +25,9 @@
             </div>
             <div class="address-section">
                 <div class="address">
-                    <span>Amal M</span><span>Home</span><br>
-                    <span>jhdhdskfjsfhskfsfhsdc fkfjfjfkf kjfkejfrjrk frfkfkofr rkjfkrf</span>
+                    <span>{{default_address.address_type}}</span><br>
+                    <span class="me-4">{{default_address.name}}</span><span class="me-1">{{default_address.mobile}}</span><br>
+                    <span>{{default_address.address}} {{default_address.locality}} {{default_address.landmark}} {{default_address.city}} {{default_address.state}} {{default_address.pincode}}</span>
                 </div>
                 <div class="change-add-button">
                     <button class="btn btn-sm me-2 btn-change" data-bs-toggle="modal" data-bs-target="#changeAddress">Change</button>
@@ -52,9 +53,7 @@
                         </div>
                         <div class="action-buttons d-flex">
                             <div class="qty-container me-4">
-                                <button class="qty-btn-minus btn-primary btn-rounded mr-1" type="button"><i class="bi bi-dash"></i></button>
-                                <input type="text" name="qty" value="{{item.quantity}}" class="input-qty input-rounded"/>
-                                <button class="qty-btn-plus btn-primary btn-rounded ml-1" type="button"><i class="bi bi-plus"></i></button>
+                               <span>Qty:<b> {{item.quantity}}</b></span>
                             </div>
                             <!-- <a href="#">REMOVE</a> -->
                         </div>
@@ -72,7 +71,7 @@
             </div>
             <div class="price-details">
                 <div class="row pt-2 pb-2">
-                    <div class="col-7">Price(1 Item)</div>
+                    <div class="col-7">Price({{total_quantity}} Item)</div>
                     <div class="col-5">₹65999</div>
                 </div>
                 <div class="row pb-3 mb-3" style="border-bottom: 1px dashed rgb(238, 238, 238);">
@@ -81,7 +80,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-7"><h5>Total</h5></div>
-                    <div class="col-5"><h5>₹65999</h5></div>
+                    <div class="col-5"><h5>₹{{total_cart_value}}</h5></div>
                 </div>
             </div>
             <div class=" container-fluid button-continue">
@@ -102,22 +101,23 @@
         </div>
         <div class="modal-body">
             <div class="row">
+                {% for address in address %}
                 <div class="col-5 me-5 mb-2 col-address">
                     <div class="mb-1">
                         <input type="radio" id="address1" name="address" value="address">
                         <span style="color:#fed700">
-                            HOME
+                           {{address.address_type}}
                         </span>
                     </div>
                     <div class="row mb-2">
-                        <div class="col-7">Amal M</div>
-                        <div class="col-5">9745495834</div>
+                        <div class="col-7">{{address.name}}</div>
+                        <div class="col-5">{{address.mobile}}</div>
                     </div>
                     <div class="mb-5 address-part">
                         <div>
-                        <span>your Address sjsfdsfdfj jsjsjss skkskss</span><br>
-                        <span>pincode,locality</span><br>
-                        <span>district,state</span>
+                        <span>{{address.address}}</span><br>
+                        <span>{{address.pincode}} {{address.locality}}</span><br>
+                        <span>{{address.city}} {{address.state}}</span>
                         </div>
                     
                         <div class="container text-center">
@@ -125,30 +125,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-5 mb-2 col-address">
-                    <div class="mb-1">
-                        <input type="radio" id="address2" name="address" value="address">
-                        <span style="color:#fed700">
-                            HOME
-                        </span>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-7">Amal M</div>
-                        <div class="col-5">9745495834</div>
-                    </div>
-                    <div class="mb-5 address-part">
-                        <div>
-                        <span>your Address</span><br>
-                        <span>pincode,locality</span><br>
-                        <span>district,state</span>
-                        </div>
-                    
-                    <div class="container text-center">
-                        <button type="button" class="btn btn-sm btn-warning mb-3 ps-3 pe-3">Edit</button>
-                    </div>
-                    </div>
-                </div>
-                
+                {% endfor %}
             </div>
             <div class="container text-center">
                 <button class="btn btn-primary">Confirm Address</button>
@@ -224,7 +201,7 @@
                       <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="editAddresstype" id="Work" value="Work">
                           <label class="form-check-label" for="work">
-                          Workaafsakhfakjhsfkahsf
+                          Work
                           </label>
                       </div>
                   </div>

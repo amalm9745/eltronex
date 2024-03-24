@@ -97,51 +97,6 @@
     margin-top: 1.5rem;
 }
 
-/* quantity button */
-/*--------------------------*/
-.qty-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .qty-container .input-qty{
-    text-align: center;
-    padding: 6px 10px;
-    border: 1px solid rgb(190, 190, 190);
-    background-color: white;
-    max-width: 40px;
-    max-height: 20px;
-  }
-  .qty-container .qty-btn-minus,
-  .qty-container .qty-btn-plus{
-    border: 1px solid rgb(190, 190, 190);
-    background-color: #ffffff;
-    padding: 1px;
-    font-size: 15px;
-    height: 20px;
-    width: 20px;
-    transition: 0.3s;
-  }
-  .qty-container .qty-btn-plus{
-    margin-left: -1px;
-  }
-  .qty-container .qty-btn-minus{
-    margin-right: -1px;
-  }
-  
-  
-  /*---------------------------*/
-  .qty-container .btn-cornered,
-  .qty-container .input-cornered{
-    border-radius: 4px;
-  }
-  .qty-container .btn-rounded{
-    border-radius: 50%;
-  }
-  .qty-container .input-rounded{
-    border-radius: 50px;
-  }
-
   /* price details part */
 .right-container{
     width:30%;

@@ -3,6 +3,7 @@ from SellerApp.models import ProductModel,ProductImgModel,ProductVariantModel
 from AdminApp.models import CategoryModel
 from UserApp.models import UserModel,CartModel,UserAddressModel,WishListModel
 from django.http import JsonResponse
+from decimal import Decimal
 
 def HomeFun(request):
     # Fetch category (change "Mobiles" to the desired category name)
@@ -310,12 +311,20 @@ def removeWishlistItem(request,variant_id):
 
 def checkout(request):
     cart_items = CartModel.objects.filter(user_id=request.session['user'])
+    address= UserAddressModel.objects.filter(user_id=request.session['user'])
+    default_address=UserAddressModel.objects.filter(user_id=request.session['user']).first()
     products = []
+    total_cart_value = Decimal(0)
+    total_quantity=Decimal(0)
     for item in cart_items:
        product_image=ProductImgModel.objects.filter(variant_id=item.variant_id).first()
+       product_total_price = Decimal(item.variant_id.selling_price) * item.quantity
+       total_cart_value += product_total_price
+       total_quantity+=item.quantity
        products.append({
             'product': item.variant_id,
             'product_image':product_image,
             'quantity':item.quantity
         })
-    return render(request,'checkout.html',{'products':products})
+    return render(request,'checkout.html',{'products':products,'address':address,'default_address':default_address,
+                                           'total_cart_value': total_cart_value,'total_quantity':total_quantity})
