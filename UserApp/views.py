@@ -307,3 +307,15 @@ def removeWishlistItem(request,variant_id):
     item=WishListModel.objects.filter(variant_id=variant_id)
     item.delete()
     return redirect('/wishlist')
+
+def checkout(request):
+    cart_items = CartModel.objects.filter(user_id=request.session['user'])
+    products = []
+    for item in cart_items:
+       product_image=ProductImgModel.objects.filter(variant_id=item.variant_id).first()
+       products.append({
+            'product': item.variant_id,
+            'product_image':product_image,
+            'quantity':item.quantity
+        })
+    return render(request,'checkout.html',{'products':products})
