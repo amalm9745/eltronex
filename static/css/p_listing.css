@@ -1,0 +1,127 @@
+body{
+    background-color: #f3f2f2;
+  }
+  
+  
+  .navbar-expand-sm{
+    background-color: rgb(255, 255, 255);
+    border-bottom: 2px solid #f3f2f2;
+  
+  }
+  .custom-search-input{
+      border-color: #fed700;
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      border-top-right-radius: 0rem;
+      border-bottom-right-radius: 0rem;
+    }
+    .custom-search-button{
+      border-top-left-radius: 0rem;
+      border-bottom-left-radius: 0rem;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      background: #fed700;
+      border-color: #fed700;
+    }
+    .custom-search-button:hover{
+      background: #f8df4f;
+      border-color: #f8df4f;
+    }
+  
+  
+  .custom-toggler-icon{
+      color:black;
+  }
+  
+  .navicons .bi:hover {
+    color: #fed700;
+  }
+    .navbar-brand{
+      margin-right: 4rem;
+    
+    }
+    .navcategoryicon{
+      margin-right:7rem;
+    
+    }
+    .search-item{
+      margin-right: 7rem;
+      width:32rem;
+    }
+   
+    
+    @media (max-width: 1199px) {
+      .navbar-brand {
+        margin-right: 2rem;
+      }
+      .navcategoryicon{
+        margin-right:2rem;
+      }
+    
+      .search-item {
+        margin-right: 2rem;
+      }
+    }
+    
+    @media (max-width: 991px) {
+    .navbar-brand {
+      margin-right: 2rem;
+    }
+    .navcategoryicon{
+      margin-right:1rem;
+    }
+    
+    .search-item {
+      margin-right: 2rem;
+      width:20rem;
+    }
+    }
+    @media (max-width: 767px) {
+      .navbar-brand {
+         margin-left: 0rem;
+        margin-right: 1rem;
+      }
+      .navcategoryicon{
+        margin-right:1rem;
+      }
+      .search-item {
+          margin-right: 1rem;
+          width:12rem;
+      }
+      
+    }
+    .navcategoryicon:hover{
+    color:#fed700;
+    }
+
+
+
+
+    /* product listing part */
+
+
+
+
+
+    .container-filter{
+        max-width: 25%;
+    }
+
+    .container-filter .filters{
+        background-color: white;
+        border-bottom: 0.5px solid #cccccc;
+    }
+
+
+    .container-listing{
+        max-width: 75%;
+    }
+
+    .container-listing .container-title{
+        border-bottom:0.5px solid #cccccc;
+        background-color: white;
+    }
+    .container-listing .container-details{
+        border-bottom:0.5px solid #cccccc;
+        background-color: white;
+    }

@@ -1,0 +1,334 @@
+:root {
+  /* --primary: #111926;
+  --white: #fff;
+  --background: #F8F8FF;
+  --gray: #D3D3D3; */
+  --text: #262626;
+  --like: #FF3040;
+}
+
+
+body{
+  background-color: #ffffff;
+  overflow-x: hidden;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+
+.navbar-expand-sm{
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid #f3f2f2;
+
+}
+.custom-search-input{
+    border-color: #fed700;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+  }
+  .custom-search-button{
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background: #fed700;
+    border-color: #fed700;
+  }
+  .custom-search-button:hover{
+    background: #f8df4f;
+    border-color: #f8df4f;
+  }
+
+
+.custom-toggler-icon{
+    color:black;
+}
+
+.navicons{
+  display:inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right:auto;
+}
+.navicons .icon:hover {
+  fill:#fed700;
+  color: #fed700;
+}
+  .navbar-brand{
+    margin-right: 8rem;
+  
+  }
+  .search-item{
+    margin-right: 7rem;
+    width:34rem;
+  }
+ 
+    /* media queries  */
+
+    @media (max-width: 1199px) {
+      .navbar-brand {
+        margin-right: 2rem;
+      }
+    
+      .search-item {
+        margin-right: 2rem;
+      }
+    }
+    
+    @media (max-width: 991px) {
+    .navbar-brand {
+      margin-right: 2rem;
+    }
+    
+    .search-item {
+      margin-right: 2rem;
+      width:20rem;
+    }
+    }
+    @media (max-width: 767px) {
+      .navbar-brand {
+         margin-left: 0rem;
+        margin-right: 1rem;
+      }
+      .search-item {
+          margin-right: 1rem;
+          width:12rem;
+      }
+      .carousel-indicators {
+        display: none;
+      }
+      }
+
+     .container_details{
+      margin-top: 20px;
+     }
+
+  
+      
+
+      /* Reduce the size of the div containing images */
+      .slick-left {
+        max-width: 100%; /* Adjust the maximum width as needed */
+        margin: 0 auto;
+        background-color: #ffffff;
+      }
+      
+      /* Make the images fit the div container */
+      .slick-left img {
+        max-width: 100%;
+        max-height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      
+      
+      .up-btn, .down-btn{
+        width:100%;
+        border:1px solid rgb(192, 192, 192);
+        background-color: #ffffff;
+      }
+/* Add border to each div */
+.slick-left .card {
+border: 1px solid rgb(192, 192, 192); /* Border style */
+transition: background-color 0.3s; /* Smooth transition for hover effect */
+border-radius: 0%;
+padding:3px;
+width:4rem;
+height: 3rem;
+}
+
+/* Change the color of the div on hover */
+.slick-left .card:hover {
+border: 2px solid #fed700; /* Change background color on hover */
+}
+
+
+.image-right{
+position:relative;
+width:22rem;
+height:20rem;
+}
+.image-right img{
+width: 22rem;
+height:19rem;
+object-fit:scale-down;
+}
+
+/* CSS for the icon */
+/* .image-right .wishlist-icon {
+display: flex;
+justify-content: end;
+font-size: 20px; 
+} */
+
+.image-right .wishlist-icon {
+  position:absolute;
+  z-index: 1;
+  top: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  right: 2rem;
+  border: none;
+  background-color: rgb(253, 253, 253);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 10px;
+}
+.image-right .wishlist-icon svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  stroke: var(--text);
+  stroke-width: 1.5px;
+}
+
+.image-right .wishlist-icon--like svg {
+  stroke: var(--like);
+  fill: var(--like);
+}
+
+
+
+.show_features{
+border-radius: 1.5rem;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px;
+width: 15rem;
+height: auto;
+padding:1rem;
+overflow: hidden;
+}
+
+.rounded-button {
+display: inline-block;
+margin-top:1rem;
+padding: 10px 20px;
+background-color: #007bff; /* Button background color */
+color: #fff; /* Button text color */
+text-decoration: none;
+border: none;
+border-radius: 20px; /* Adjust the value to control the roundness of the edges */
+cursor: pointer;
+font-size: 16px;
+width:13rem;
+transition: background-color 0.3s ease;
+}
+
+.rounded-button:hover {
+background-color: #0056b3; /* Button background color on hover */
+}
+
+
+
+
+
+
+.container_review {
+margin-top: 5rem;
+margin-bottom: 8rem;
+}
+
+.container_review .list{
+/* Add this CSS to center align the list items */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.horizontal-list {
+list-style-type: none;
+padding: 0;
+margin-bottom: 0;
+display: flex;
+}
+.horizontal-list li {
+margin-right: 10px;
+cursor: pointer;
+}
+.horizontal-list li:hover{
+border-bottom:2px solid #fed700;
+}
+.content {
+display: none;
+border-radius: 20px;
+margin-top:20px;
+border: 1px solid #ccc;
+padding: 40px 70px;
+}
+
+
+
+.bg-footer {
+background-color: #33383c;
+padding: 50px 0 30px;
+}
+.footer-heading {
+letter-spacing: 2px;
+}
+
+.footer-link a {
+color: #acacac;
+line-height: 40px;
+font-size: 14px;
+transition: all 0.5s;
+}
+
+.footer-link a:hover {
+color: #1bbc9b;
+}
+
+.contact-info {
+color: #acacac;
+font-size: 14px;
+}
+
+.footer-social-icon {
+padding:10px;
+font-size: 15px;
+height: 34px;
+width: 34px;
+line-height: 34px;
+border-radius: 3px;
+text-align: center;
+display: inline-block;
+}
+
+.facebook {
+background-color: #4e71a8;
+color: #ffffff;
+}
+
+.twitter {
+background-color: #55acee;
+color: #ffffff;
+}
+
+.google {
+background-color: #d6492f;
+color: #ffffff;
+}
+
+.apple {
+background-color: #424041;
+color: #ffffff;
+}
+
+.footer-alt {
+color: #acacac;
+}
+
+.footer-heading {
+position: relative;
+padding-bottom: 12px;
+}
+
+.footer-heading:after {
+content: '';
+width: 25px;
+border-bottom: 1px solid #FFF;
+position: absolute;
+left: 0;
+bottom: 0;
+display: block;
+border-bottom: 1px solid #1bbc9b;
+}

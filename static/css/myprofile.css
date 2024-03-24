@@ -1,0 +1,135 @@
+body{
+    background-color: #f3f2f2;
+  }
+  
+  ::-webkit-scrollbar{
+    display: none;
+  }
+  .navbar-expand-sm{
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid #f3f2f2;
+  
+  }
+  .custom-search-input{
+      border-color: #fed700;
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      border-top-right-radius: 0rem;
+      border-bottom-right-radius: 0rem;
+    }
+    .custom-search-button{
+      border-top-left-radius: 0rem;
+      border-bottom-left-radius: 0rem;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      background: #fed700;
+      border-color: #fed700;
+    }
+    .custom-search-button:hover{
+      background: #f8df4f;
+      border-color: #f8df4f;
+    }
+  
+  
+  .custom-toggler-icon{
+      color:black;
+  }
+  
+  .navicons{
+    display:inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right:auto;
+  }
+  .navicons .icon:hover {
+    fill:#fed700;
+    color: #fed700;
+  }
+    .navbar-brand{
+      margin-right: 8rem;
+    
+    }
+    .search-item{
+      margin-right: 7rem;
+      width:34rem;
+    }
+   
+    
+ /* media queries  */
+
+ @media (max-width: 1199px) {
+    .navbar-brand {
+      margin-right: 2rem;
+    }
+  
+    .search-item {
+      margin-right: 2rem;
+    }
+  }
+  
+  @media (max-width: 991px) {
+  .navbar-brand {
+    margin-right: 2rem;
+  }
+  
+  .search-item {
+    margin-right: 2rem;
+    width:20rem;
+  }
+  }
+  @media (max-width: 767px) {
+    .navbar-brand {
+       margin-left: 0rem;
+      margin-right: 1rem;
+    }
+    .search-item {
+        margin-right: 1rem;
+        width:12rem;
+    }
+    .carousel-indicators {
+      display: none;
+    }
+    }
+  
+
+
+/* user_profile_page styles */
+.container-sidebar .container_name{
+    background-color: white;
+    border: 2px;
+    border-style: none;
+    box-shadow: 4px 4px 8px rgba(105, 105, 105, 0.1);
+  }
+  .container-sidebar .container_profile_list{
+    background-color: white;
+    border: 2px;
+    border-style: none;
+    box-shadow: 4px 4px 8px rgba(105, 105, 105, 0.1);
+  }
+  .myprofile{
+    background-color: white;
+    border: 2px;
+    border-style: none;
+    box-shadow: 4px 4px 8px rgba(105, 105, 105, 0.1);
+  }
+  .container-address{
+    max-width: 75%;
+    background-color: white;
+  }
+ .add-address{
+    border:1px solid #cccccc;
+  }
+
+ .container-address .address-body .col-address{
+  background-color: white;
+  border:1px solid #cccccc;
+ }
+ .container_profile_list .container-fluid{
+  cursor: pointer;
+ }
+ /* .container_profile_list .container-fluid:active{
+  background-color: #fed700;
+ } */
+ .container_profile_list .selected {
+  background-color: #ffca2c; /* Change to the desired background color */
+}

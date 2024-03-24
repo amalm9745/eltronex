@@ -1,0 +1,37 @@
+.my-form {
+    padding: 2em;
+    color: #000000;
+    max-width: 55vh;
+    margin-inline: auto;
+  }
+  .form-control {
+    background-color: inherit;
+    color: #181717;
+    border: none;
+    border-bottom: 1px solid #161414;
+    border-radius: 0;
+    padding-left: 0;
+  }
+  .form-control:focus {
+    background-color: inherit;
+    color: #181717;
+    box-shadow: none;
+    border-color: #181717;
+  }
+  .btn {
+    border-radius: 0;
+    width: 100%;
+    font-weight: bold;
+  }
+  .my-form p {
+    color: gray;
+    text-align: center;
+  }
+  
+  .my-form p a {
+    color: gray;
+    text-decoration: none;
+  }
+  .my-form p a:hover {
+    color: black;
+  }

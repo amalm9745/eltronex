@@ -1,0 +1,298 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="{% static 'css/product_details.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-sm mt-3 mb-3">
+          <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" width="150rem"></a>
+
+           <!-- Toggler button for small screens -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavSmall" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="custom-toggler-icon"><i class="bi bi-menu-button-wide"></i></span>
+          </button>
+           <!-- Navbar items for larger screens -->
+          <div class="collapse navbar-collapse" id="navbarNav"> 
+            <form class="d-flex search-item " role="search">
+              <input class="form-control custom-search-input" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-primary custom-search-button" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+            
+            <!-- nav bar icons-user,cart,wishlist -->
+            <div class="navicons">
+
+              <div class="dropdown profile-dropdown">
+                
+                <a class="usericon" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"  class="bi bi-person me-lg-4 me-md-3 me-sm-2 icon" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                  </svg>
+                </a>
+              
+                <ul class="dropdown-menu mt-4">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                    <i class="bi bi-person-circle icon"></i>
+                    My profile</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                    <i class="bi bi-box-seam"></i>
+                    My Orders</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                    <i class="bi bi-power"></i>
+                    Login</a>
+                  </li>
+                </ul>
+              </div>
+
+
+
+              
+              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" class="bi bi-heart me-lg-4 me-md-3 me-sm-2 icon" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-bag icon" viewBox="0 0 16 16">
+                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+              </svg>
+
+            </div>
+          </div>
+
+          <!-- Navbar items for small screens -->
+          <div class="collapse navbar-collapse" id="navbarNavSmall">
+            <ul class="navbar-nav ms-auto d-sm-none">
+              <li class="nav-item">
+                <form class="d-flex search-item mt-4" role="search">
+                  <input class="form-control custom-search-input" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn custom-search-button" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+    </nav>
+    
+
+
+    <!-- products details display -->
+    <div class="container-fluid container_details">
+    <div class="row">
+       <!-- column where the small images display -->
+        <div class="col-4">
+            <div class="row">
+              
+              <div class="col-2">
+                <button class="external-btn up-btn"><i class="bi bi-caret-up-fill"></i></button>
+                <div class="slick-left">
+                  {% for images in product_img %}
+                  <div class="card">
+                    <img src="{{ images.p_img.url }}">
+                  </div>
+                  {% endfor %}
+                </div>
+                <button class="external-btn down-btn"><i class="bi bi-caret-down-fill"></i></button>
+              </div>
+
+              <!-- large image part -->
+              <div class="col-10 image-right">
+                <button class="wishlist-icon {% if product_in_wishlist %}wishlist-icon--like{% endif %}" data-variant-id="{{ product.variant_id }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                  </svg>
+                </button>
+                <div class="slick-right">
+                  {% for images in product_img %}
+                  <div>
+                    <img class="img-fluid" src="{{ images.p_img.url }}" alt="">
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+           </div>
+        </div>
+
+        
+      <!-- product descriptions -->
+      <div class="col-5">
+        <div class="container-fluid" style="border-bottom: 0.5px solid rgb(219, 219, 219);">
+          <div class="h5">{{product.variant_name}}</div>
+          <div class="d-flex"><div class="me-3">4.6*</div><div>119 Ratings & 11 Reviews</div></div>
+        </div>
+        
+        <div class="container-fluid mt-3">
+          <div class="mb-2">Highlights</div>
+          <div>
+            <ul>
+              {% for key,value in highlight.items %}
+              <li>{{value}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="container-fluid d-flex p-2">
+          <i class="bi bi-geo-alt-fill"></i>
+          <div>Delivery at:Kochi, 621506.</div>
+        </div>
+
+      </div>
+        <div class="col-3">
+          <div class="show_features ms-4">
+            <h3>₹{{product.selling_price}}</h3>
+            <p class="ms-1"><s>₹{{product.original_price}}</s></p>
+            {% for key,value in filter.items %}
+            <div>{{key}}</div>
+            <div class="ram_btns d-flex">
+              {% for x in value %}
+              <button type="button" class="btn btn-primary btn-sm me-1">{{x}}</button>
+              {% endfor %}
+            </div>
+            {% endfor %}
+            
+            {% if product_in_cart %}
+            <a href="/cart" class="rounded-button ps-5">View Cart</a>
+            {% else %}     
+            <button  class="rounded-button" onclick=addToCart({{product.variant_id}})>Add to Cart</button>
+            {% endif %}
+          
+            <button class="rounded-button">Buy Now</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- specification,description and reviews -->
+
+<div class="container container_review">
+  <div class="list">
+    <ul class="horizontal-list">
+      <li onclick="showContent('description')">Description</li>
+      <li onclick="showContent('specification')">Specification</li>
+      <li onclick="showContent('review')">Review</li>
+    </ul>
+  </div>
+  
+  <div class="content" id="description" style="display: block;">
+    <h4>Description</h4>
+    <p>{{product.product_id.product_desc}}</p>
+  </div>
+  
+  <div class="content" id="specification">
+    <h4>Specification</h4>
+    <ul>
+      {% for key,value in highlight.items %}
+      <li>{{key}} : {{value}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <div class="content" id="review">
+    <h4>Ratings and Review</h4>
+    <div class="d-flex">
+      Overall rating:4.1
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+<footer class="section bg-footer">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="">
+                  <h6 class="footer-heading text-uppercase text-white">Categories</h6>
+                  <ul class="list-unstyled footer-link mt-4">
+                      <li><a href="">Mobiles</a></li>
+                      <li><a href="">Televisions</a></li>
+                      <li><a href="">Laptops</a></li>
+                      <li><a href="">Headphones</a></li>
+                      <li><a href="">Smart Watches</a></li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="col-lg-4">
+              <div class="">
+                  <h6 class="footer-heading text-uppercase text-white">Help</h6>
+                  <ul class="list-unstyled footer-link mt-4">
+                      <li><a href="">Sign Up </a></li>
+                      <li><a href="">Login</a></li>
+                      <li><a href="">Terms of Services</a></li>
+                      <li><a href="">Privacy Policy</a></li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="col-lg-4">
+              <div class="">
+                  <h6 class="footer-heading text-uppercase text-white">Contact Us</h6>
+                  <p class="contact-info mt-4">Contact us if need help withanything</p>
+                  <p class="contact-info">+01 123-456-7890</p>
+                  <div class="mt-5">
+                      <ul class="list-inline">
+                          <li class="list-inline-item"><a href="#"><i class="fab facebook footer-social-icon fa-facebook-f"></i></i></a></li>
+                          <li class="list-inline-item"><a href="#"><i class="fa-brands fa-x-twitter footer-social-icon twitter"></i></a></li>
+                          <li class="list-inline-item"><a href="#"><i class="fab google footer-social-icon fa-google"></i></i></a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+  <div class="text-center mt-5">
+      <p class="footer-alt mb-0 f-14">2024 © Eltonex, All Rights Reserved</p>
+  </div>
+</footer>
+<script>
+  {% comment %} function buyNow(product_id) {
+    window.location.href = '/ordersummary/' + {{product.book_id}};
+  } {% endcomment %}
+  function addToCart(variant_id) {
+    window.location.href = '/addtocart/' + {{ product.variant_id }} +'/'+"product_details";
+  } 
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js" integrity="sha512-eP8DK17a+MOcKHXC5Yrqzd8WI5WKh6F1TIk5QZ/8Lbv+8ssblcz7oGC8ZmQ/ZSAPa7ZmsCU4e/hcovqR8jfJqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{% static 'js/product_details.js' %}"></script>
+</body>
+</html>

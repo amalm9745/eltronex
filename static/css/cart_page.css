@@ -1,0 +1,170 @@
+body{
+    background-color: #f1f3f6;
+  }
+  .navbar-expand-sm{
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid #f3f2f2;
+  
+  }
+  .custom-search-input{
+      border-color: #fed700;
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      border-top-right-radius: 0rem;
+      border-bottom-right-radius: 0rem;
+    }
+    .custom-search-button{
+      border-top-left-radius: 0rem;
+      border-bottom-left-radius: 0rem;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      background: #fed700;
+      border-color: #fed700;
+    }
+    .custom-search-button:hover{
+      background: #f8df4f;
+      border-color: #f8df4f;
+    }
+  
+  
+  .custom-toggler-icon{
+      color:black;
+  }
+  
+  .navicons{
+    display:inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right:auto;
+  }
+  .navicons .icon:hover {
+    fill:#fed700;
+    color: #fed700;
+  }
+    .navbar-brand{
+      margin-right: 8rem;
+    
+    }
+    .search-item{
+      margin-right: 7rem;
+      width:34rem;
+    }
+   
+      /* media queries  */
+  
+      @media (max-width: 1199px) {
+        .navbar-brand {
+          margin-right: 2rem;
+        }
+      
+        .search-item {
+          margin-right: 2rem;
+        }
+      }
+      
+      @media (max-width: 991px) {
+      .navbar-brand {
+        margin-right: 2rem;
+      }
+      
+      .search-item {
+        margin-right: 2rem;
+        width:20rem;
+      }
+      }
+      @media (max-width: 767px) {
+        .navbar-brand {
+           margin-left: 0rem;
+          margin-right: 1rem;
+        }
+        .search-item {
+            margin-right: 1rem;
+            width:12rem;
+        }
+        .carousel-indicators {
+          display: none;
+        }
+        }
+  
+       .container_details{
+        margin-top: 20px;
+       }
+  
+      /* css for cart page */
+  
+      .container-cart .container-price-list{
+        background-color: white;
+        height:100%;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 100px;
+        border: 2px;
+        border-style: none;
+        box-shadow: 4px 4px 8px rgba(105, 105, 105, 0.1);
+      }
+  
+      .container-cart .container-product-listing{
+        background-color: white;
+        border: 2px;
+        border-style:none;
+        box-shadow: 4px 4px 8px rgba(163, 163, 163, 0.1);
+      }
+
+
+button:focus,
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.qty-container {
+  display: flex;
+  align-items: center;
+}
+
+.qty-container .input-qty {
+  text-align: center;
+  padding: 6px 10px;
+  border: 1px solid #d4d4d4;
+  max-width: 50px;
+  max-height: 25px;
+}
+
+.qty-container .qty-btn-minus,
+.qty-container .qty-btn-plus {
+  border: 1px solid #d4d4d4;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 25px;
+  transition: 0.3s;
+}
+
+/* .qty-container .qty-btn-plus {
+  margin-left: -1px;
+}
+
+.qty-container .qty-btn-minus {
+  margin-right: -1px;
+} */
+
+/* Other Bootstrap Classes */
+.btn-cornered,
+.input-cornered {
+  border-radius: 4px;
+}
+
+.btn-rounded {
+  border-radius: 50%;
+}
+
+.input-rounded {
+  border-radius: 50px;
+}
