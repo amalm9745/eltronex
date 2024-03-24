@@ -1,0 +1,215 @@
+.container-checkout{
+    display:flex;
+}
+.container-title{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-container{
+    width:68%;
+    margin-right: 2%;
+    flex:2;
+}
+.address-section{
+    display:flex;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+.address-title{
+    background-color: #fed700;
+    padding-left:0.5rem;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.address-section .address{
+    width:83%;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.address-section .change-add-button{
+    width:27%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+.change-add-button .btn-change{
+    background-color: #fed700;
+    color:white;
+
+}
+.change-add-button .btn-add{
+    border:1px solid #fed700;
+
+}
+.change-add-button .btn-change:hover{
+    background-color: white;
+    color:black;
+    border:1px solid #fed700;
+}
+.change-add-button .btn-add:hover{
+    background-color: #fed700;
+    color:white;
+}
+
+/* .order-summary{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+} */
+.order-summary-content{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding:1rem;
+    margin-bottom: 0.5rem;
+    background-color: #ffffff;
+}
+.order-summary-title{
+    background-color: #fed700;
+    padding-left:0.5rem;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.order-summary-content .product-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.order-summary-content .product-image .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:8rem;
+    height:8rem;
+}
+.order-summary-content .product-image .image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.order-summary-content .product-details{
+    padding-left:0.5rem;
+}
+.order-summary-content .product-details .action-buttons{
+    margin-top: 1.5rem;
+}
+
+/* quantity button */
+/*--------------------------*/
+.qty-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qty-container .input-qty{
+    text-align: center;
+    padding: 6px 10px;
+    border: 1px solid rgb(190, 190, 190);
+    background-color: white;
+    max-width: 40px;
+    max-height: 20px;
+  }
+  .qty-container .qty-btn-minus,
+  .qty-container .qty-btn-plus{
+    border: 1px solid rgb(190, 190, 190);
+    background-color: #ffffff;
+    padding: 1px;
+    font-size: 15px;
+    height: 20px;
+    width: 20px;
+    transition: 0.3s;
+  }
+  .qty-container .qty-btn-plus{
+    margin-left: -1px;
+  }
+  .qty-container .qty-btn-minus{
+    margin-right: -1px;
+  }
+  
+  
+  /*---------------------------*/
+  .qty-container .btn-cornered,
+  .qty-container .input-cornered{
+    border-radius: 4px;
+  }
+  .qty-container .btn-rounded{
+    border-radius: 50%;
+  }
+  .qty-container .input-rounded{
+    border-radius: 50px;
+  }
+
+  /* price details part */
+.right-container{
+    width:30%;
+    height: 18rem;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    flex:1;
+}
+@media (max-width: 770px) {
+    .container-checkout {
+        flex-direction: column;
+    }
+
+    .right-container {
+        order: 1;
+        width:100%;
+    }
+    .left-container{
+        width:100%;
+    }
+
+    .left-container, .right-container {
+        flex: 1; /* Adjust width for both containers when stacked */
+        margin-right: 0; /* Remove margin when stacked */
+    }
+}
+  .right-container .price-details-title{
+    padding:1rem;
+    border-bottom: 1px solid rgb(238, 238, 238);
+  }
+  .right-container .price-details{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-bottom: 1px solid rgb(238, 238, 238);
+  }
+  .button-continue{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .button-continue button {
+    width: 280px; 
+    border: 1px solid #fed700;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 8px; 
+    color: rgb(0, 0, 0); 
+    cursor: pointer; 
+    transition:0.3s;
+}
+
+.button-continue button:hover {
+    background-color: #fed700;
+    color:white;
+}
+.action-buttons a{
+    text-decoration: none;
+}
+
+.address-part {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 70%;
+}
+
+.text-center {
+    align-self: flex-end;
+}

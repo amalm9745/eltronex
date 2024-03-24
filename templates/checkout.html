@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1"><img src="logo.png" width="150rem"></span>
+        </div>
+    </nav>
+
+    <div class="container container-title"><h2>Checkout</h2></div>
+
+    <div class="container container-checkout">
+        <div class="left-container">
+            <div class="address-title">
+                Delivery Address
+            </div>
+            <div class="address-section">
+                <div class="address">
+                    <span>Amal M</span><span>Home</span><br>
+                    <span>jhdhdskfjsfhskfsfhsdc fkfjfjfkf kjfkejfrjrk frfkfkofr rkjfkrf</span>
+                </div>
+                <div class="change-add-button">
+                    <button class="btn btn-sm me-2 btn-change" data-bs-toggle="modal" data-bs-target="#changeAddress">Change</button>
+                    <button class="btn btn-sm me-2 btn-add" data-bs-toggle="modal" data-bs-target="#addAddress">Add Address</button>
+                </div>
+            </div>
+            <div class="order-summary">
+                <div class="order-summary-title">
+                    Order Summary
+                </div>
+                <div class="order-summary-content d-flex">
+                    <div class="col-2 product-image">
+                        <div class="image">
+                            <img src="img2.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-10 product-details">
+                        <h5>Apple iPhone 15 (128GB,Blue)</h5>
+                        <div class="d-flex">
+                            <div><s>₹79999</s></div>
+                            <div class="h5">₹65999</div>
+                        </div>
+                        <div class="action-buttons d-flex">
+                            <div class="qty-container me-4">
+                                <button class="qty-btn-minus btn-primary btn-rounded mr-1" type="button"><i class="bi bi-dash"></i></button>
+                                <input type="text" name="qty" value="0" class="input-qty input-rounded"/>
+                                <button class="qty-btn-plus btn-primary btn-rounded ml-1" type="button"><i class="bi bi-plus"></i></button>
+                            </div>
+                            <a href="#">REMOVE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+        <!-- price details part -->
+        <div class="right-container">
+            <div class="h5 price-details-title">
+                Price Details
+            </div>
+            <div class="price-details">
+                <div class="row pt-2 pb-2">
+                    <div class="col-7">Price(1 Item)</div>
+                    <div class="col-5">₹65999</div>
+                </div>
+                <div class="row pb-3 mb-3" style="border-bottom: 1px dashed rgb(238, 238, 238);">
+                    <div class="col-7">Delivery Charges</div>
+                    <div class="col-5">Free</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-7"><h5>Total</h5></div>
+                    <div class="col-5"><h5>₹65999</h5></div>
+                </div>
+            </div>
+            <div class=" container-fluid button-continue">
+                <button>Proceed To Payment</button>
+            </div>
+        </div>
+    </div>
+
+
+
+     <!-- Modal for change address-->
+  <div class="modal fade" id="changeAddress" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Delivery Address</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-5 me-5 mb-2 col-address">
+                    <div class="mb-1">
+                        <input type="radio" id="address1" name="address" value="address">
+                        <span style="color:#fed700">
+                            HOME
+                        </span>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-7">Amal M</div>
+                        <div class="col-5">9745495834</div>
+                    </div>
+                    <div class="mb-5 address-part">
+                        <div>
+                        <span>your Address sjsfdsfdfj jsjsjss skkskss</span><br>
+                        <span>pincode,locality</span><br>
+                        <span>district,state</span>
+                        </div>
+                    
+                        <div class="container text-center">
+                            <button type="button" class="btn btn-sm btn-warning mb-3 ps-3 pe-3"data-bs-toggle="modal" data-bs-target="#editAddress">Edit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 mb-2 col-address">
+                    <div class="mb-1">
+                        <input type="radio" id="address2" name="address" value="address">
+                        <span style="color:#fed700">
+                            HOME
+                        </span>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-7">Amal M</div>
+                        <div class="col-5">9745495834</div>
+                    </div>
+                    <div class="mb-5 address-part">
+                        <div>
+                        <span>your Address</span><br>
+                        <span>pincode,locality</span><br>
+                        <span>district,state</span>
+                        </div>
+                    
+                    <div class="container text-center">
+                        <button type="button" class="btn btn-sm btn-warning mb-3 ps-3 pe-3">Edit</button>
+                    </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="container text-center">
+                <button class="btn btn-primary">Confirm Address</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Modal for edit inside the modal change address -->
+  <div class="modal fade" id="editAddress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Address</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3 d-flex">
+                  <div class="me-4 col-5">
+                      <label for="nameInput" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="editNameInput" style="height:2rem" name="editName">
+                  </div>
+                  <div class="col-5">
+                      <label for="mobileInput" class="form-label">Mobile</label>
+                      <input type="text" class="form-control" id="editMobile" style="height:2rem" name="editMobile">
+                  </div>
+                </div>
+                <div class="mb-3 d-flex">
+                  <div class="me-4 col-5">
+                      <label for="addressInput" class="form-label">Address</label>
+                      <input type="text" class="form-control" id="editAddress" style="height:2rem" name="editAddress">
+                  </div>
+                  <div class="col-5">
+                      <label for="localityInput" class="form-label">Locality</label>
+                      <input type="text" class="form-control" id="editLocality" style="height:2rem" name="editLocality">
+                  </div>
+                </div>
+                <div class="mb-3 d-flex">
+                  <div class="me-4 col-5">
+                      <label for="pincodeInput" class="form-label">Pincode</label>
+                      <input type="text" class="form-control" id="editPincode" style="height:2rem" name="editPincode">
+                  </div>
+                  <div class="col-5">
+                      <label for="landmarkInput" class="form-label">Landmark</label>
+                      <input type="text" class="form-control" id="editLandmark" style="height:2rem" name="editLandmark">
+                  </div>
+                </div>
+                <div class="mb-3 d-flex">
+                  <div class="me-4 col-5">
+                      <label for="cityInput" class="form-label">City</label>
+                      <input type="text" class="form-control" id="editCity" style="height:2rem" name="editCity">
+                  </div>
+                  <div class="col-5">
+                      <label for="stateInput" class="form-label">State</label>
+                      <input type="text" class="form-control" id="editState" style="height:2rem" name="editState">
+                  </div>
+                </div>
+                <div>
+                  <label class="mb-1">Address Type</label>
+                  <div class="mb-3">
+                      <div class="form-check me-5 form-check-inline">
+                          <input class="form-check-input" type="radio" name="editAddresstype" id="Home" value="Home">
+                          <label class="form-check-label" for="home">
+                          Home
+                          </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="editAddresstype" id="Work" value="Work">
+                          <label class="form-check-label" for="work">
+                          Workaafsakhfakjhsfkahsf
+                          </label>
+                      </div>
+                  </div>
+                  <input type="hidden" id="addressId" name="addressId">
+                  <input type="hidden" name="profile" value="editAddressSave">
+                  <div class="btn_save">
+                    <button class="btn btn-md btn-warning" type="submit">save</button>
+                  </div>
+             </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Modal for edit inside the modal add new address -->
+<div class="modal fade" id="addAddress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Address</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3 d-flex">
+                  <div class="me-4 col-5">
+                      <label for="nameInput" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="editNameInput" style="height:2rem" name="editName">
+                  </div>
+                  <div class="col-5">
+                      <label for="mobileInput" class="form-label">Mobile</label>
+                      <input type="text" class="form-control" id="editMobile" style="height:2rem" name="editMobile">
+                  </div>
+                </div>
+                <div class="mb-3 d-flex">
+                  <div class="me-4 col-5">
+                      <label for="addressInput" class="form-label">Address</label>
+                      <input type="text" class="form-control" id="editAddress" style="height:2rem" name="editAddress">
+                  </div>
+                  <div class="col-5">
+                      <label for="localityInput" class="form-label">Locality</label>
+                      <input type="text" class="form-control" id="editLocality" style="height:2rem" name="editLocality">
+                  </div>
+                </div>
+                <div class="mb-3 d-flex">
+                  <div class="me-4 col-5">
+                      <label for="pincodeInput" class="form-label">Pincode</label>
+                      <input type="text" class="form-control" id="editPincode" style="height:2rem" name="editPincode">
+                  </div>
+                  <div class="col-5">
+                      <label for="landmarkInput" class="form-label">Landmark</label>
+                      <input type="text" class="form-control" id="editLandmark" style="height:2rem" name="editLandmark">
+                  </div>
+                </div>
+                <div class="mb-3 d-flex">
+                  <div class="me-4 col-5">
+                      <label for="cityInput" class="form-label">City</label>
+                      <input type="text" class="form-control" id="editCity" style="height:2rem" name="editCity">
+                  </div>
+                  <div class="col-5">
+                      <label for="stateInput" class="form-label">State</label>
+                      <input type="text" class="form-control" id="editState" style="height:2rem" name="editState">
+                  </div>
+                </div>
+                <div>
+                  <label class="mb-1">Address Type</label>
+                  <div class="mb-3">
+                      <div class="form-check me-5 form-check-inline">
+                          <input class="form-check-input" type="radio" name="editAddresstype" id="Home" value="Home">
+                          <label class="form-check-label" for="home">
+                          Home
+                          </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="editAddresstype" id="Work" value="Work">
+                          <label class="form-check-label" for="work">
+                          Work
+                          </label>
+                      </div>
+                  </div>
+                  <input type="hidden" id="addressId" name="addressId">
+                  <input type="hidden" name="profile" value="editAddressSave">
+                  <div class="btn_save">
+                    <button class="btn btn-md btn-warning" type="submit">save</button>
+                  </div>
+             </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const inputQty = document.querySelector('.input-qty');
+            const btnPlus = document.querySelector('.qty-btn-plus');
+            const btnMinus = document.querySelector('.qty-btn-minus');
+            const maxValue = 10;
+    
+            // Set initial quantity to 1
+            let quantity = 1;
+            inputQty.value = quantity;
+    
+            // Function to increment quantity
+            btnPlus.addEventListener('click', function () {
+                if (quantity < maxValue) {
+                    quantity++;
+                    inputQty.value = quantity;
+                }
+            });
+    
+            // Function to decrement quantity
+            btnMinus.addEventListener('click', function () {
+                if (quantity > 1) {
+                    quantity--;
+                    inputQty.value = quantity;
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>
