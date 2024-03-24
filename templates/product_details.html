@@ -183,8 +183,9 @@
             {% else %}     
             <button  class="rounded-button" onclick=addToCart({{product.variant_id}})>Add to Cart</button>
             {% endif %}
-            <div>
-              <button class="rounded-button">Buy Now</button>
+            <div class="buy-now-button-container">
+              <input type="number" id="quantity" name="quantity" min="1" max="10" class="quantity-input" value="1">
+              <button class="buy-now-button" type="submit">Buy Now</button>
             </div>
           </div>
         </div>
@@ -290,6 +291,25 @@
   function addToCart(variant_id) {
     window.location.href = '/addtocart/' + {{ product.variant_id }} +'/'+"product_details";
   } 
+
+
+
+  // Get the quantity input element
+  const quantityInput = document.getElementById('quantity');
+
+  // Add an event listener to detect changes in the input value
+  quantityInput.addEventListener('change', function() {
+      // Parse the input value as an integer
+      const quantityValue = parseInt(quantityInput.value);
+
+      // Get the maximum allowed value from the input attributes
+      const maxValue = parseInt(quantityInput.getAttribute('max'));
+
+      // If the entered value exceeds the maximum value, set it to the maximum value
+      if (quantityValue > maxValue) {
+          quantityInput.value = maxValue;
+      }
+  });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>

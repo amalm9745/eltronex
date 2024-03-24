@@ -218,6 +218,30 @@ transition: background-color 0.3s ease;
 .rounded-button:hover {
 background-color: #0056b3; /* Button background color on hover */
 }
+.buy-now-button-container {
+  display: flex;
+  margin-top:1rem;
+}
+
+.quantity-input {
+  border-top-left-radius: 20px; /* Round left edge */
+  border-bottom-left-radius: 20px; /* Round left edge */
+  border: 1px solid #007bff; /* Add border for visual clarity */
+  width:3rem;
+  padding: 8px 0px;
+}
+
+.buy-now-button {
+  border-top-right-radius: 20px; /* Round right edge */
+  border-bottom-right-radius: 20px; /* Round right edge */
+  background-color: #007bff; /* Blue color */
+  color: #fff; /* White text color */
+  padding-right: 50px;
+  border: none; /* Remove button border */
+  cursor: pointer; /* Show pointer cursor on hover */
+  width:10rem;
+}
+
 
 
 
