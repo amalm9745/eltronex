@@ -251,7 +251,7 @@ def moveToWishlist(request,variant_id):
     if WishListModel.objects.filter(variant_id=variant_id).exists():
         item=CartModel.objects.filter(variant_id=variant_id)
         item.delete()
-        return redirect('/Cart')
+        return redirect('/cart')
     else:
         wishlist=WishListModel()
         variant_id=ProductVariantModel.objects.get(variant_id=variant_id)
