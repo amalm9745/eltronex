@@ -260,7 +260,7 @@ def moveToWishlist(request,variant_id):
         wishlist.save()
         item=CartModel.objects.filter(variant_id=variant_id)
         item.delete()
-        return redirect('/Cart')
+        return redirect('/cart')
 
 
 
