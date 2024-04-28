@@ -4,6 +4,7 @@ from UserApp import views
 urlpatterns = [
     path('',views.HomeFun,name='home'),
     path('product/<int:product_id>/<int:variant_id>/', views.product_detail_view, name='product_detail'),
+    path('search/',views.search_products, name='search_products'),
     path('login/',views.loginFun,name='login'),
     path('logout/',views.logout,name="logout"),
     path('addtocart/<int:variant_id>/<str:location>',views.addToCart),

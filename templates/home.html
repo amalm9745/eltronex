@@ -31,8 +31,8 @@
       </button>
        <!-- Navbar items for larger screens -->
       <div class="collapse navbar-collapse" id="navbarNav"> 
-        <form class="d-flex search-item " role="search">
-          <input class="form-control custom-search-input" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex search-item " role="search" action="{% url 'search_products' %}" method="GET">
+          <input class="form-control custom-search-input" type="search" placeholder="Search" aria-label="Search" name="q">
           <button class="btn btn-primary custom-search-button" type="submit"><i class="bi bi-search"></i></button>
         </form>
         
@@ -239,6 +239,49 @@
       </div>
   
     </div>
+</div>
+
+
+
+
+<div class="container-fluid mt-5">
+
+  <h5 class="h5 mb-4">Televisions</h5>
+
+
+  <div class="ms-5 me-2">
+    <div class="row responsive">
+      {% for x in tv %}
+        <div class="col-lg-1">
+            <a href="{% url 'product_detail' product_id=x.product_id.product_id variant_id=x.variant_id %}">
+            <article class="product_card">
+                <div class="card__preview">
+                    {% with product_image=x.productimgmodel_set.first %}
+                    <img src="{{product_image.p_img.url}}" alt="img">
+                    {% endwith %}
+                    
+                </div>
+                <div class="card__content">
+                    <h6 class="card__title">{{x.variant_name}}</h6>
+                    <div class="card__price">
+                        <p> ₹{{x.selling_price}}</p>
+                        <s><p> ₹{{x.original_price}}</p></s>
+                    </div>
+                    <div class="card__bottom">
+                        <div class="card__properties">
+                            rating:4.2
+                        </div>
+                    </div>
+                </div>
+            </article>
+          </a>
+        </div>
+        {% endfor %}
+        
+        
+    </div>
+
+  </div>
 </div>
 
 

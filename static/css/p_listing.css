@@ -49,6 +49,10 @@ body{
     margin-right: 7rem;
     width:34rem;
   }
+  .container-details .p_image{
+    width:50%;
+    height:50%
+  }
  
     /* media queries  */
 

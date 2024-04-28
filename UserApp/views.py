@@ -1,21 +1,81 @@
 from django.shortcuts import render, get_object_or_404,redirect,HttpResponse
-from SellerApp.models import ProductModel,ProductImgModel,ProductVariantModel
+from SellerApp.models import ProductModel,ProductImgModel,ProductVariantModel,Brand
 from AdminApp.models import CategoryModel
 from UserApp.models import UserModel,CartModel,UserAddressModel,WishListModel
 from django.http import JsonResponse
+from django.db.models import Q
 from decimal import Decimal
 
 def HomeFun(request):
     # Fetch category (change "Mobiles" to the desired category name)
-    category = CategoryModel.objects.get(category_name="Mobiles")
+    category_mobile = CategoryModel.objects.get(category_name="Mobiles")
+    category_tv = CategoryModel.objects.get(category_name="Television")
     # Fetch products for the category
-    mobiles = ProductVariantModel.objects.filter(category_id=category)
+    mobiles = ProductVariantModel.objects.filter(category_id=category_mobile)
+    tv = ProductVariantModel.objects.filter(category_id=category_tv)
     
     content = {
         'mobiles': mobiles,
+        'tv':tv
     }
 
     return render(request, "home.html", content)
+
+
+
+def search_products(request):
+    query = request.GET.get('q', '')
+    brands=Brand.objects.all()
+    categories = CategoryModel.objects.all()
+
+    # Filter products based on query, category, or subcategory
+    if query:
+        # Check if the query matches any category or subcategory name
+        category_products = ProductVariantModel.objects.filter(product_id__sub_category_id__category_id__category_name__icontains=query)
+        subcategory_products = ProductVariantModel.objects.filter(product_id__sub_category_id__sub_category_name__icontains=query)
+        # Combine the results
+        products = category_products | subcategory_products
+        # # Filter brands based on matched categories or subcategories
+        category_brands = Brand.objects.filter(productmodel__productvariantmodel__in=category_products).distinct()
+        subcategory_brands = Brand.objects.filter(productmodel__productvariantmodel__in=subcategory_products).distinct()
+
+        # # Combine brand queryset to remove duplicates
+        brands = subcategory_brands | category_brands
+        # Filter categories based on query
+        categories = CategoryModel.objects.filter(Q(category_name__icontains=query) | Q(sub_categorymodel__sub_category_name__icontains=query)).distinct()
+
+        # If no category or subcategory matches, search by product name
+        if not products.exists():
+            products = ProductVariantModel.objects.filter(variant_name__icontains=query)
+            brands = Brand.objects.filter(productmodel__productvariantmodel__variant_name__icontains=query).distinct()
+            # Find the category of products searched
+            categories = CategoryModel.objects.filter(sub_categorymodel__productmodel__productvariantmodel__variant_name__icontains=query).distinct()
+
+
+        if request.method=="POST":
+            sort_by=request.POST.get("price_order")
+            if sort_by=="asc":
+                products=products.order_by("selling_price")
+            elif sort_by=="desc":
+                products=products.order_by("-selling_price")
+    else:
+        products = ProductVariantModel.objects.all()
+
+
+    
+
+    context = {
+        'products': products,
+        'query': query,
+        'categories':categories,
+        'brands' : brands
+    }
+    return render(request, 'p_listing.html', context)
+
+
+
+
+
 
 def loginFun(request):
     if request.method=="POST":
@@ -46,6 +106,8 @@ def product_detail_view(request, product_id,variant_id):
     else:
         address=None
     product = get_object_or_404(ProductModel, pk=product_id)
+
+    #for retrieving details of mobiles
     if product.sub_category_id.category_id.category_name=="Mobiles":
         # ram=[]
         # rom=[]
@@ -70,10 +132,25 @@ def product_detail_view(request, product_id,variant_id):
             'Battery':variant.battery,
             'Processor':variant.processor
         }
-        product_img = ProductImgModel.objects.filter(variant_id=variant_id)
+        
 
+
+    #for retrieving details of televisions
+    if product.sub_category_id.category_id.category_name=="Television":
+        variant=get_object_or_404(ProductVariantModel,pk=variant_id)
+        highlight={
+            'Operating System':variant.operating_system,
+            'Display Size':variant.display_size,
+            'Display':variant.display,
+            'Sound Output':variant.sound_output,
+            'Apps':variant.apps,
+            'Launch Year':variant.launch_year,
+        }
+    
     
 
+    #for retrieving product images
+    product_img = ProductImgModel.objects.filter(variant_id=variant_id)
 
     product_in_cart = False
     product_in_wishlist = False
