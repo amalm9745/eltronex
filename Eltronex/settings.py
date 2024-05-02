@@ -77,12 +77,22 @@ WSGI_APPLICATION = 'Eltronex.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME':'eltronex_db',
+#         'USER':'root',
+#         'PASSWORD':'amal@2001',
+#     }
+# }
 DATABASES = {
-    'default': {
+    'default':{
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'eltronex_db',
-        'USER':'root',
-        'PASSWORD':'amal@2001',
+        'NAME': 'eltronex_db',
+        'USER': 'eltronex',
+        'PASSWORD': '9745395843',
+        'HOST': 'database-1.cz28qu2cajrv.ap-southeast-2.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
